@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+![](https://i.imgur.com/xG74tOh.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Aula prática de React - Cubos Player
 
-## Available Scripts
+Essa aula prática consiste em desenvolver um player de músicas, para isso você usará o layout figma que se encontra nesse [link](https://www.figma.com/file/2RRh9uG0Mjj6p4p6ekVnNp/Cubos-Player?node-id=0%3A1).
 
-In the project directory, you can run:
 
-### `yarn start`
+Caso você queira importar o arquivo do figma no seu computador, ele está nessa pasta com o nome `Cubos Player.fig`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Os detalhes do que você precisará desenvolver está nos vídeos introdutórios da aula...
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+... mas o layout que você irá encontrar no figma é esse:
 
-### `yarn build`
+![](https://i.imgur.com/kU1nrcS.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Dicas
 
-### `yarn eject`
+Você usará:
+- Estados (useState)
+- Referẽncias (useRef)
+- Eventos
+- Props de:
+    - valores
+    - referências
+    - funções
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+As duas aulas anteriores são as mais importantes para você conseguir desenvolver esse projeto.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Preencha a checklist para fazer os exercícios:
 
-## Learn More
+-   [ ] Fazer o fork do repositório para sua conta
+-   [ ] Executar `git clone` do seu fork no terminal para clonar o repositório, ou clonar de outra maneira
+-   [ ] Após fazer e commitar todos os exercícios fazer o `git push` para seu fork
+-   [ ] Copiar a url do seu fork e enviar na plataforma
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+###### tags: `módulo 3` `front-end` `React`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
