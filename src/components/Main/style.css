@@ -1,0 +1,31 @@
+.container-main {
+    margin: 90px 0 50px;
+    width: 1120px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-main h1 {
+    margin-bottom: 25px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #FFF;
+}
+
+.container-main .line {
+    margin-bottom: 10px;
+    width: 100%;
+    border: 1px solid #6A6363;
+}
+
+.container-musics {
+    width: 100%;
+    height: 435px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

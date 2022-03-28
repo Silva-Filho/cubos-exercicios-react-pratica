@@ -1,0 +1,31 @@
+.container-header {
+    width: 100vw;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #6A6363;
+}
+
+.welcome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcome img {
+    margin-right: 8px;
+    width: 40px;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid #6A6363;
+}
+
+.welcome span {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFF;
+}

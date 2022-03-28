@@ -1,0 +1,168 @@
+.container-footer {
+    width: 100vw;
+    height: 180px;
+    padding: 15px 0 25px 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(180deg, #383535 0%, rgba(133, 130, 130, 0) 100%);
+    border-top: 2px solid rgba(0, 0, 0, 0.21);
+}
+
+.music-info {
+    margin-right: 145px;
+}
+
+.music-info h2 {
+    margin-bottom: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #FFF;
+}
+
+.music-info span {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFF;
+}
+
+.music-player {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 27.5%;
+}
+
+.controls {
+    width: 330px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.controls button {
+    all: unset;
+    cursor: pointer;
+}
+
+.controls img {
+    width: 50px;
+    height: 50px;
+}
+
+.principal-button img {
+    width: 65px;
+    height: 65px;
+}
+
+.controls button:hover {
+    transform: scale(1.1);
+    color: #FFF;
+}
+/* .controls button:hover:not(:disabled) {
+    transform: scale(1.1);
+    color: #FFF;
+} */
+
+.controls button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.progress-container {
+    width: 645px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+
+.progress-container span {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #CCC3C3;
+}
+
+.progress-line {
+    position: relative;
+}
+
+.progress-line .line {
+    width: 500px;
+    border-bottom: 4px solid #CCC3C3;
+    cursor: pointer;
+}
+
+.progress-line .line-progressed {
+    /* width: 40%; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom: 4px solid #E5007B;
+}
+
+.progress-container input[type=range] {
+    --bar-bg: #FFE3D4;
+    --seek-before-width: 0;
+    /* --seek-before-color: #FFC2A1; */
+    --seek-before-color: #E5007B;
+    /* --knobby: #3452A5; */
+    --knobby: #04D361;
+    /* --selectedKnobby: #26C9C3; */
+    --selectedKnobby: #058d88;
+
+    width: 500px;
+    height: 11px;
+    position: relative;
+    appearance: none;
+    background-color: var(--bar-bg);
+    border-radius: 10px;
+    outline: none;
+    /* border: 0; */
+}
+
+.progress-container input[type=range]::before {
+    content: "";
+    height: 11px;
+    width: var(--seek-before-width);
+    background-color: var(--seek-before-color);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    /* border-radius: 10px; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.progress-container input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin: -1px 0 0 -0.5px;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    z-index: 3;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--knobby);
+    cursor: pointer;
+}
+
+.progress-container input[type=range]:active::-webkit-slider-thumb {
+    transform: scale(1.2);
+    background: var(--selectedKnobby);
+}
