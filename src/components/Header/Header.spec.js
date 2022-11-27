@@ -4,7 +4,7 @@ import { render, screen } from "../../tests";
 
 import { Header } from "./index";
 
-describe.skip( "component Header", () => {
+describe( "component Header", () => {
     it( "should display Logo image", () => {
         render( <Header /> );
 
@@ -24,8 +24,8 @@ describe.skip( "component Header", () => {
     it( "should display Welcome message", () => {
         render( <Header /> );
 
-        const profileImg = screen.getByLabelText( /Welcome/i );
+        const welcomeMessage = screen.getByLabelText( /Welcome/i );
 
-        expect( profileImg ).toBeInTheDocument();
+        expect( welcomeMessage ).toBeInTheDocument();
     } );
 } );
