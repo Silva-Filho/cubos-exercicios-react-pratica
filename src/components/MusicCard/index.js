@@ -1,16 +1,20 @@
-import "./style.css";
+import React from "react";
 
-export function MusicCard({ handlePlayMusic, music }) {
+import styles from "./MusicCard.module.css";
+
+export function MusicCard( { handlePlayMusic, music } ) {
     return (
-        <div 
-            className="music-card" 
-            onClick={() => handlePlayMusic(music)}
+        <div
+            aria-label={ `music card 0${ music.id }` }
+            data-testid={ `music card 0${ music.id }` }
+            className={ styles[ "music-card" ] }
+            onClick={ () => handlePlayMusic( music ) }
         >
-            <img src={music.cover} alt={music.title} />
+            <img src={ music.cover } alt={ music.title } />
 
-            <h2>{music.title}</h2>
+            <h2>{ music.title }</h2>
 
-            <p>{music.description}</p>
+            <p>{ music.description }</p>
         </div>
     );
 };
