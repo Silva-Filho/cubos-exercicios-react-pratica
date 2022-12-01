@@ -6,7 +6,7 @@ import { MusicCard } from "./index";
 
 import { musics } from "../../data/musics";
 
-describe.skip( "component Header", () => {
+describe( "component Header", () => {
     it( "should display music infos about track 01", () => {
         const [ music01 ] = musics;
         const handlePlayMusic = jest.fn();
