@@ -1,26 +1,28 @@
+import React from "react";
+
 import { MusicCard } from "../MusicCard";
 
-import "./style.css";
+import styles from "./Main.module.css";
 
-export function Main({ handlePlayMusic, musicsInfos }) {
-    const musicsList = [...musicsInfos];
+export function Main( { handlePlayMusic, musicsInfos } ) {
+    const musicsList = [ ...musicsInfos ];
 
     return (
-        <div className="container-main">
+        <main className={ styles[ "container-main" ] }>
             <h1>The best play list</h1>
-            
-            <div className="line"></div>
 
-            <div className="container-musics">
+            <div className={ styles.line }></div>
+
+            <div className={ styles[ "container-musics" ] }>
                 { musicsList.map( music => (
-                    <MusicCard 
-                        key={music.id} 
-                        music={music} 
+                    <MusicCard
+                        key={ music.id }
+                        music={ music }
                         /* onClick={() => handlePlayMusic(music)} */
-                        handlePlayMusic={handlePlayMusic}
+                        handlePlayMusic={ handlePlayMusic }
                     />
                 ) ) }
             </div>
-        </div>
+        </main>
     );
 }
