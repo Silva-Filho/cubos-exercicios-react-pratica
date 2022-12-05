@@ -69,6 +69,7 @@
     transform: scale(1.1);
     color: #FFF;
 }
+
 /* .controls button:hover:not(:disabled) {
     transform: scale(1.1);
     color: #FFF;
@@ -132,6 +133,11 @@
     border-radius: 10px;
     outline: none;
     /* border: 0; */
+    cursor: pointer;
+}
+
+.progress-container input[type=range]:disabled {
+    cursor: not-allowed;
 }
 
 .progress-container input[type=range]::before {
@@ -150,6 +156,7 @@
 }
 
 .progress-container input[type=range]::-webkit-slider-thumb {
+    appearance: none;
     -webkit-appearance: none;
     margin: -1px 0 0 -0.5px;
     height: 20px;
@@ -160,6 +167,10 @@
     border: none;
     background-color: var(--knobby);
     cursor: pointer;
+}
+
+.progress-container input[type=range]:disabled::-webkit-slider-thumb {
+    cursor: not-allowed;
 }
 
 .progress-container input[type=range]:active::-webkit-slider-thumb {
