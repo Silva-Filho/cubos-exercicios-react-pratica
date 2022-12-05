@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-/* import { useState } from "react"; */
+import React, { useEffect, useRef, useState } from "react";
 
 // @ts-ignore
 import NextButton from "../../assets/next.svg";
@@ -12,60 +11,68 @@ import PreviousButton from "../../assets/previous.svg";
 // @ts-ignore
 import StopButton from "../../assets/stop.svg";
 
-import "./style.css";
+import styles from "./Footer.module.css";
 
-export function Footer({ handlePlayMusic, isPlaying, music, musicsInfos, setIsPlaying }) {
-    const [musicCurrentTime, setMusicCurrentTime] = useState(0);
-    const audioRef = useRef(null);
+export function Footer( { handlePlayMusic, isPlaying, music, musicsInfos, setIsPlaying } ) {
+    const [ musicCurrentTime, setMusicCurrentTime ] = useState( 0 );
+    const audioRef = useRef( null );
     /* const progressLineRef = useRef(null); */
-    const progressInputRef = useRef(null);
-    const animationRef = useRef(null);
-    const musicsList = [...musicsInfos];
+    const progressInputRef = useRef( null );
+    const animationRef = useRef( null );
+    const musicsList = [ ...musicsInfos ];
 
     let posicaoAtual = music?.id;
     /* let idInterval = null; */
     /* let musicCurrentTime = 0; */
 
-    useEffect(() => {
-        const seconds = Math.floor(audioRef.current?.duration);
-
+    useEffect( () => {
+        // @ts-ignore
+        const seconds = Math.floor( audioRef.current?.duration );
+        // @ts-ignore
         progressInputRef.current.max = seconds;
-    }, [audioRef?.current?.loadedmetadata, audioRef?.current?.readyState]);
+        // @ts-ignore
+    }, [ audioRef?.current?.loadedmetadata, audioRef?.current?.readyState ] );
 
     function handlePause() {
+        // @ts-ignore
         audioRef.current.pause();
-        setIsPlaying(false);
+        setIsPlaying( false );
         /* if (audioRef.current.pause) {
             clearInterval(idInterval);
         } */
-        cancelAnimationFrame(animationRef.current);
+        // @ts-ignore
+        cancelAnimationFrame( animationRef.current );
     }
-    
+
     function handlePlay() {
+        // @ts-ignore
         audioRef.current.play();
-        setIsPlaying(true);
-       /*  handleProgress(); */
-       animationRef.current = requestAnimationFrame(whilePlaying);
+        setIsPlaying( true );
+        /*  handleProgress(); */
+        // @ts-ignore
+        animationRef.current = requestAnimationFrame( whilePlaying );
     }
-    
+
     function handleStop() {
+        // @ts-ignore
         audioRef.current.pause();
+        // @ts-ignore
         audioRef.current.currentTime = 0;
-        setIsPlaying(false);
+        setIsPlaying( false );
     }
 
     function handlePrevious() {
         posicaoAtual -= 1;
 
-        if (posicaoAtual < 1) {
+        if ( posicaoAtual < 1 ) {
             posicaoAtual = musicsList.length;
         }
 
         const tmpMusic = musicsList.find( item => {
             return item.id === posicaoAtual;
-        })
+        } );
 
-        handlePlayMusic(tmpMusic);
+        handlePlayMusic( tmpMusic );
         /* setIsPlaying(false); */
         handleStop();
     }
@@ -73,15 +80,15 @@ export function Footer({ handlePlayMusic, isPlaying, music, musicsInfos, setIsPl
     function handleNext() {
         posicaoAtual += 1;
 
-        if (posicaoAtual > musicsInfos.length) {
+        if ( posicaoAtual > musicsInfos.length ) {
             posicaoAtual = 1;
         }
 
         const tmpMusic = musicsInfos.find( item => {
             return item.id === posicaoAtual;
-        })
+        } );
 
-        handlePlayMusic(tmpMusic);
+        handlePlayMusic( tmpMusic );
         /* setIsPlaying(false); */
         handleStop();
     }
@@ -96,114 +103,128 @@ export function Footer({ handlePlayMusic, isPlaying, music, musicsInfos, setIsPl
             progressLineRef.current.style.width = `${currentProgress}%`;
         }, 1000);
     } */
-    
+
     function handleChangeProgress() {
+        // @ts-ignore
         audioRef.current.currentTime = progressInputRef.current.value;
         changePlayerCurrentTime();
     }
 
     function whilePlaying() {
+        // @ts-ignore
         progressInputRef.current.value = audioRef.current.currentTime;
         changePlayerCurrentTime();
-        animationRef.current = requestAnimationFrame(whilePlaying);
+        // @ts-ignore
+        animationRef.current = requestAnimationFrame( whilePlaying );
     }
 
     function changePlayerCurrentTime() {
+        // @ts-ignore
         progressInputRef.current.style.setProperty(
-            '--seek-before-width', 
-            `${progressInputRef.current.value / audioRef.current.duration * 100}%`
-        )
-        setMusicCurrentTime(progressInputRef.current.value);
+            "--seek-before-width",
+            // @ts-ignore
+            `${ progressInputRef.current.value / audioRef.current.duration * 100 }%`
+        );
+        // @ts-ignore
+        setMusicCurrentTime( progressInputRef.current.value );
         handleChangeButtonPlayPause();
     }
 
-    function handleFormatTime(musicTime) {
-        if (isNaN(musicTime)) {
+    function handleFormatTime( musicTime ) {
+        if ( isNaN( musicTime ) ) {
             return "00:00";
         }
         const mins = Math.floor( musicTime / 60 );
         const secs = Math.floor( musicTime % 60 );
 
-        const timeString = `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+        const timeString = `${ String( mins ).padStart( 2, "0" ) }:${ String( secs ).padStart( 2, "0" ) }`;
 
         return timeString;
     }
 
     function handleChangeButtonPlayPause() {
-        if (audioRef.current.ended) {
-            setIsPlaying(false);
+        // @ts-ignore
+        if ( audioRef.current.ended ) {
+            setIsPlaying( false );
         }
     }
 
     return (
-        <div className="container-footer">
-            <div className="music-info">
-                <h2>{music ? music.title : ""}</h2>
+        <footer className={ styles[ "container-footer" ] }>
+            <div className={ styles[ "music-info" ] }>
+                <h2 data-testid="music-playing-title">
+                    { music ? music.title : "" }
+                </h2>
 
-                <span>{music ? music.artist : ""}</span>
+                <span data-testid="music-playing-artist">
+                    { music ? music.artist : "" }
+                </span>
             </div>
 
-            <div className="music-player">
-                { music && 
-                    <audio src={music ? music.url : ""} ref={audioRef} preload="metadata" /> 
-                }                
+            <div className={ styles[ "music-player" ] }>
+                { music &&
+                    <audio src={ music ? music.url : "" } ref={ audioRef } preload="metadata" />
+                }
 
-                <div className="controls">
-                    <button 
+                <div className={ styles.controls }>
+                    <button
                         type="button"
-                        disabled={ !music } 
-                        onClick={() => handleStop()}
+                        disabled={ !music }
+                        onClick={ () => handleStop() }
                     >
-                        <img 
-                            src={StopButton} 
-                            alt="stop button" 
+                        <img
+                            src={ StopButton }
+                            alt="stop button"
                         />
                     </button>
 
                     <button
                         type="button"
-                        disabled={ !music } 
-                        onClick={() => handlePrevious()}
+                        disabled={ !music }
+                        onClick={ () => handlePrevious() }
                     >
-                        <img 
-                            src={PreviousButton} 
-                            alt="previous button" 
+                        <img
+                            src={ PreviousButton }
+                            alt="previous button"
                         />
                     </button>
-                    
-                    <button 
-                        className="principal-button" 
+
+                    <button
+                        data-testid="play-pause-button"
+                        className={ styles[ "principal-button" ] }
                         type="button"
-                        disabled={ !music } 
-                        onClick={() => isPlaying ? handlePause() : handlePlay()}
+                        disabled={ !music }
+                        onClick={ () => isPlaying ? handlePause() : handlePlay() }
                     >
-                        { isPlaying ? 
-                            <img 
-                                src={PauseButton} 
-                                alt="pause button" 
+                        { isPlaying ?
+                            <img
+                                src={ PauseButton }
+                                alt="pause button"
                             /> :
-                            <img 
-                                src={PlayButton} 
-                                alt="play button" 
+                            <img
+                                src={ PlayButton }
+                                alt="play button"
                             />
                         }
                     </button>
-                    
-                    <button 
+
+                    <button
                         type="button"
-                        disabled={ !music } 
-                        onClick={() => handleNext()} 
+                        disabled={ !music }
+                        onClick={ () => handleNext() }
                     >
-                        <img 
-                            src={NextButton} 
-                            alt="next button" 
+                        <img
+                            src={ NextButton }
+                            alt="next button"
                         />
                     </button>
                 </div>
 
-                <div className="progress-container">
-                    {/* <span>{handleFormatTime(audioRef.current?.currentTime ?? 0)}</span> */}
-                    <span>{handleFormatTime(musicCurrentTime)}</span>
+                <div className={ styles[ "progress-container" ] }>
+                    {/* <span>{handleFormatTime(audioRef.current?.currentTime ?? 0)}</span> */ }
+                    <span data-testid="music-current-time" >
+                        { handleFormatTime( musicCurrentTime ) }
+                    </span>
 
                     {/* <div className="progress-line">
                         <div className="line" ></div>
@@ -214,16 +235,23 @@ export function Footer({ handlePlayMusic, isPlaying, music, musicsInfos, setIsPl
                         ></div>
                     </div> */}
 
-                    <input 
-                        type="range" 
-                        defaultValue="0" 
-                        ref={progressInputRef} 
-                        onChange={handleChangeProgress} 
+                    <input
+                        data-testid="music-progress-line"
+                        type="range"
+                        defaultValue="0"
+                        ref={ progressInputRef }
+                        onChange={ handleChangeProgress }
+                        disabled={ !music }
                     />
 
-                    <span>{handleFormatTime(audioRef?.current?.duration ?? 0)}</span>
+                    <span data-testid="music-duration" >
+                        { handleFormatTime(
+                            // @ts-ignore
+                            audioRef?.current?.duration ?? 0
+                        ) }
+                    </span>
                 </div>
             </div>
-        </div>
+        </footer>
     );
 }
