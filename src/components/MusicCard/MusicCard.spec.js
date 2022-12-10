@@ -6,7 +6,7 @@ import { MusicCard } from "./index";
 
 import { musics } from "../../data/musics";
 
-describe( "component Header", () => {
+describe( "component MusicCard - layout", () => {
     it( "should display music infos about track 01", () => {
         const [ music01 ] = musics;
         const handlePlayMusic = jest.fn();
@@ -26,7 +26,9 @@ describe( "component Header", () => {
         expect( titleMusic ).toBeInTheDocument();
         expect( descriptionMusic ).toBeInTheDocument();
     } );
+} );
 
+describe( "component MusicCard - user behavior", () => { 
     it( "should select music when clicked the card", async () => {
         // @ts-ignore
         // eslint-disable-next-line no-unused-vars
@@ -45,5 +47,6 @@ describe( "component Header", () => {
         await userEvent.click( musicCard );
 
         expect( handlePlayMusic ).toBeCalled();
+        expect( handlePlayMusic ).toHaveBeenCalledTimes( 1 );
     } );
 } );
